@@ -4,8 +4,8 @@
 GITLAB_HOME=$HOME/gitlab-test/srv/gitlab
 
 # * IP y hostname
-HOST_NAME="gitlab.prueba.com"
-IP_HOST=0.0.0.0
+HOST_NAME=milabproy.redclara.net
+IP_HOST=201.159.223.183
 
 # * Puertos
 HTTP_PORT=80
