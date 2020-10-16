@@ -4,7 +4,7 @@
 GITLAB_HOME=$HOME/gitlab-test/srv/gitlab
 
 # * IP y hostname
-HOST_NAME=milabproy.redclara.net
+HOST_NAME="ilabproy.redclara.net"
 IP_HOST=201.159.223.183
 
 # * Puertos
@@ -28,6 +28,7 @@ docker run --detach \
 --hostname $HOST_NAME \
 --publish $IP_HOST:$HTTP_PORT:$HTTP_PORT \
 --publish $IP_HOST:$HTTPS_PORT:$HTTPS_PORT \
+--publish $IP_HOST:8065:22 \ # Este puerto es especial para pruebas
 --name gitlab \
 --volume $CONFIG:$HOME/gitlab-test/etc/gitlab \
 --volume $LOGS:$HOME/gitlab-test/var/log/gitlab \
