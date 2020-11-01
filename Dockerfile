@@ -8,6 +8,9 @@ RUN apt-get install dirmngr --install-recommends -y
 RUN apt-get install software-properties-common -y
 
 RUN apt-get install snapd -y
+RUN systemctl unmask snapd.service
+RUN systemctl enable snapd.service
+RUN systemctl start snapd.service
 RUN snap install core && snap refresh core
 
 RUN snap install --classic certbot
