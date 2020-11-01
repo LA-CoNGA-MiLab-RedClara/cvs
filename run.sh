@@ -39,6 +39,7 @@ export GITLAB_HOME
 
 # Luego, ejecutar el contenedor
 sudo podman run --detach \
+--env GITLAB_OMNIBUS_CONFIG="external_url 'https://milabproy.redclara.net/'; letsencrypt['enable'] = true" \
 --hostname $HOST_NAME \
 --publish $IP_HOST:$HTTP_PORT:$HTTP_PORT \
 --publish $IP_HOST:$HTTPS_PORT:$HTTPS_PORT \
