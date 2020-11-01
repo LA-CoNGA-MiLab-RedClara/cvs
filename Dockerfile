@@ -1,4 +1,4 @@
-FROM docker://gitlab/gitlab-ce:latest
+FROM gitlab/gitlab-ce:latest
 
 RUN mkdir -p /var/www/letsencrypt
 RUN mkdir -p /var/www/pagessl
