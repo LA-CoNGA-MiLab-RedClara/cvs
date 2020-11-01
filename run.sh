@@ -7,7 +7,7 @@ mkdir -p ${GITLAB_HOME}
 
 # * IP y hostname
 HOST_NAME="milabproy.redclara.net"
-IP_HOST=201.159.223.183
+IP_HOST=190.15.141.11
 
 # * Puertos
 HTTP_PORT=80
@@ -38,7 +38,7 @@ GITLAB_DOCKER="docker.io/gitlab/gitlab-ce"
 export GITLAB_HOME
 
 # Luego, ejecutar el contenedor
-sudo podman run --detach \
+sudo docker run --detach \
 --env GITLAB_OMNIBUS_CONFIG="external_url 'https://milabproy.redclara.net/'; letsencrypt['enable'] = true" \
 --hostname $HOST_NAME \
 --publish $IP_HOST:$HTTP_PORT:$HTTP_PORT \
