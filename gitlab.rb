@@ -31,6 +31,28 @@
 ##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
 external_url 'https://milabproy.redclara.net'
 
+### Use SAML to sign in without having to manually create an account first
+gitlab_rails['omniauth_allow_single_sign_on'] = ['saml']
+gitlab_rails['omniauth_block_auto_created_users'] = false
+
+### Automatically link SAML users with existing GitLab users if their email addresses match
+gitlab_rails['omniauth_auto_link_saml_user'] = true
+
+### Additional SAML, IdP and SSO configuration
+gitlab_rails['omniauth_providers'] = [
+  {
+    name: 'saml',
+    args: {
+             assertion_consumer_service_url: 'https://gitmilab.redclara.net/users/auth/saml/callback',
+             idp_cert_fingerprint: #PENDING  ,
+             idp_sso_target_url: #PENDING ,
+             issuer: 'https://gitmilab.redclara.net',
+             name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent' #CHECK
+           },
+    label: 'MiLAB Login' # optional label for SAML login button, defaults to "Saml"
+  }
+]
+
 ## Roles for multi-instance GitLab
 ##! The default is to have no roles enabled, which results in GitLab running as an all-in-one instance.
 ##! Options:
